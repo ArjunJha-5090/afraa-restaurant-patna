@@ -176,6 +176,28 @@ export default function Navigation() {
                 {link}
               </motion.button>
             ))}
+            
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: navLinks.length * 0.08 }}
+              onClick={() => scrollTo('Reservations')}
+              style={{
+                marginTop: 24,
+                border: '1px solid #C8A86B',
+                background: 'rgba(200,168,107,0.1)',
+                padding: '16px 40px',
+                fontFamily: "'Inter', sans-serif",
+                fontSize: 14,
+                letterSpacing: '0.25em',
+                textTransform: 'uppercase',
+                color: '#C8A86B',
+                cursor: 'pointer',
+                borderRadius: 4
+              }}
+            >
+              Reserve A Table
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>
