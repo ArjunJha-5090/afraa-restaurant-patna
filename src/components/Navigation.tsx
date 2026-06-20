@@ -170,7 +170,16 @@ export default function Navigation() {
                   background: 'none', border: 'none', cursor: 'pointer',
                   fontFamily: "'Playfair Display', serif",
                   fontSize: 36, color: 'rgba(250,246,238,0.8)',
-                  letterSpacing: '0.05em'
+                  letterSpacing: '0.05em',
+                  transition: 'all 0.3s ease'
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.color = '#C8A86B';
+                  e.currentTarget.style.transform = 'scale(1.05)';
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.color = 'rgba(250,246,238,0.8)';
+                  e.currentTarget.style.transform = 'scale(1)';
                 }}
               >
                 {link}
@@ -183,17 +192,31 @@ export default function Navigation() {
               transition={{ delay: navLinks.length * 0.08 }}
               onClick={() => scrollTo('Reservations')}
               style={{
-                marginTop: 24,
+                marginTop: 32,
                 border: '1px solid #C8A86B',
                 background: 'rgba(200,168,107,0.1)',
-                padding: '16px 40px',
+                padding: '18px 48px',
                 fontFamily: "'Inter', sans-serif",
-                fontSize: 14,
+                fontSize: 16,
                 letterSpacing: '0.25em',
                 textTransform: 'uppercase',
                 color: '#C8A86B',
                 cursor: 'pointer',
-                borderRadius: 4
+                borderRadius: 4,
+                transition: 'all 0.3s ease',
+                boxShadow: '0 8px 32px rgba(200,168,107,0.15)'
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = '#C8A86B';
+                e.currentTarget.style.color = '#100E0C';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 12px 40px rgba(200,168,107,0.3)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = 'rgba(200,168,107,0.1)';
+                e.currentTarget.style.color = '#C8A86B';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 8px 32px rgba(200,168,107,0.15)';
               }}
             >
               Reserve A Table
