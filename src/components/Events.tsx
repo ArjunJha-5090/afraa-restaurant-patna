@@ -132,6 +132,7 @@ export default function Events() {
                 border: '1px solid rgba(200,168,107,0.1)',
                 background: 'linear-gradient(135deg, rgba(20,16,14,0.5), rgba(12,10,8,0.8))',
                 backdropFilter: 'blur(12px)',
+              }}
               onMouseEnter={e => {
                 e.currentTarget.style.borderColor = event.color + '40';
                 e.currentTarget.style.background = `linear-gradient(135deg, ${event.color}15, rgba(16,14,12,0.85))`;
