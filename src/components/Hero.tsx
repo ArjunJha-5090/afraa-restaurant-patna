@@ -285,7 +285,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Corner text decorations */}
-      <div style={{
+      <div className="hidden md:block" style={{
         position: 'absolute', bottom: 40, left: 48,
         fontFamily: "'Inter', sans-serif",
         fontSize: 10, letterSpacing: '0.2em',
@@ -294,7 +294,7 @@ export default function Hero() {
       }}>
         Patna, Bihar
       </div>
-      <div style={{
+      <div className="hidden md:block" style={{
         position: 'absolute', bottom: 40, right: 48,
         fontFamily: "'Inter', sans-serif",
         fontSize: 10, letterSpacing: '0.2em',

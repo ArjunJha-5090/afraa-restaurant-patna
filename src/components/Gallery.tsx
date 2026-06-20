@@ -29,13 +29,13 @@ export default function Gallery() {
     : galleryItems.filter(i => i.category === activeFilter);
 
   return (
-    <section id="gallery" style={{ padding: '160px 0', background: 'linear-gradient(180deg, #0A0A0A, #0D0B09 50%, #0A0A0A 100%)', position: 'relative', overflow: 'hidden' }}>
+    <section id="gallery" className="py-20 lg:py-40 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #0A0A0A, #0D0B09 50%, #0A0A0A 100%)' }}>
       <div style={{
         position: 'absolute', inset: 0,
         background: 'radial-gradient(ellipse at 50% 30%, rgba(200,168,107,0.04) 0%, transparent 60%)'
       }} />
 
-      <div ref={ref} style={{ maxWidth: 1400, margin: '0 auto', padding: '0 48px' }}>
+      <div ref={ref} className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 80 }}>
           <motion.div
@@ -67,7 +67,7 @@ export default function Gallery() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '0px' }}
           transition={{ delay: 0.3, duration: 0.8 }}
-          style={{ display: 'flex', justifyContent: 'center', gap: 8, marginBottom: 60 }}
+          className="flex flex-wrap justify-center gap-2 mb-10 lg:mb-[60px]"
         >
           {filters.map(f => (
             <button
@@ -90,12 +90,7 @@ export default function Gallery() {
         {/* Masonry-style grid */}
         <motion.div
           layout
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
-            gridAutoRows: '200px',
-            gap: 12
-          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 auto-rows-[200px]"
         >
           <AnimatePresence>
             {filtered.map((item, i) => (
@@ -107,15 +102,8 @@ export default function Gallery() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ delay: i * 0.05, duration: 0.5 }}
                 onClick={() => setLightboxItem(item)}
-                style={{
-                  gridColumn: item.size === 'large' ? 'span 2' : 'span 1',
-                  gridRow: item.size === 'large' ? 'span 2' : item.size === 'medium' ? 'span 2' : 'span 1',
-                  cursor: 'pointer',
-                  position: 'relative',
-                  overflow: 'hidden',
-                  border: '1px solid rgba(200,168,107,0.05)',
-                  background: '#0A0A0A',
-                }}
+                className={`relative overflow-hidden cursor-pointer border border-[#C8A86B]/5 bg-[#0A0A0A] ${item.size === 'large' ? 'md:col-span-2 row-span-2' : item.size === 'medium' ? 'col-span-1 row-span-2' : 'col-span-1 row-span-1'}`}
+                style={{}}
                 whileHover={{ scale: 1.01 }}
               >
                 {/* Photo */}
@@ -196,7 +184,7 @@ export default function Gallery() {
               exit={{ scale: 0.8, opacity: 0 }}
               transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
               style={{
-                width: '70vw', height: '70vh', maxWidth: 1000,
+                width: '90vw', height: '70vh', maxWidth: 1000,
                 border: `1px solid ${lightboxItem.accent}30`,
                 position: 'relative',
                 overflow: 'hidden',

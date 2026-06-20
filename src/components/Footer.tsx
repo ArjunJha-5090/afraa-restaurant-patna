@@ -10,8 +10,8 @@ export default function Footer() {
       <div style={{ height: 1, background: 'linear-gradient(90deg, transparent, rgba(200,168,107,0.3), transparent)' }} />
 
       {/* Main footer content */}
-      <div style={{ maxWidth: 1400, margin: '0 auto', padding: '80px 48px 40px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr', gap: 80, marginBottom: 80 }}>
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12 pt-20 pb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-10 lg:gap-20 mb-20">
           {/* Brand column */}
           <div>
             <h2 style={{

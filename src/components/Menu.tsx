@@ -50,15 +50,15 @@ export default function Menu() {
   const ref = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="menu" style={{ padding: '160px 0', background: '#0A0A0A', position: 'relative' }}>
+    <section id="menu" className="py-20 lg:py-40 relative" style={{ background: '#0A0A0A' }}>
       <div style={{
         position: 'absolute', inset: 0,
         background: 'radial-gradient(ellipse at 20% 60%, rgba(200,168,107,0.04) 0%, transparent 50%)'
       }} />
 
-      <div ref={ref} style={{ maxWidth: 1400, margin: '0 auto', padding: '0 48px' }}>
+      <div ref={ref} className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'start', marginBottom: 80 }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start mb-12 lg:mb-20">
           <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -84,18 +84,18 @@ export default function Menu() {
             </motion.h2>
           </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '0px' }}
-            transition={{ delay: 0.3, duration: 0.9 }}
-            style={{
-              fontFamily: "'Cormorant Garamond', serif",
-              fontSize: 20, lineHeight: 1.7,
-              color: 'rgba(250,246,238,0.5)',
-              fontStyle: 'italic', fontWeight: 300,
-              marginTop: 80
-            }}
-          >
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '0px' }}
+              transition={{ delay: 0.3, duration: 0.9 }}
+              className="mt-8 lg:mt-20"
+              style={{
+                fontFamily: "'Cormorant Garamond', serif",
+                fontSize: 20, lineHeight: 1.7,
+                color: 'rgba(250,246,238,0.5)',
+                fontStyle: 'italic', fontWeight: 300
+              }}
+            >
             Our kitchen speaks the language of seasons. Every dish is a collaboration between heritage techniques and modern artistry — crafted to accompany Afraa's exceptional dining experience.
           </motion.p>
         </div>
@@ -105,7 +105,8 @@ export default function Menu() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '0px' }}
           transition={{ delay: 0.4, duration: 0.9 }}
-          style={{ display: 'flex', gap: 4, marginBottom: 60, borderBottom: '1px solid rgba(200,168,107,0.1)', paddingBottom: 0 }}
+          className="flex overflow-x-auto whitespace-nowrap gap-1 mb-10 lg:mb-16 border-b border-[#C8A86B]/10 pb-0"
+          style={{ msOverflowStyle: 'none', scrollbarWidth: 'none' }}
         >
           {menuSections.map(section => (
             <button
@@ -136,7 +137,7 @@ export default function Menu() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 2 }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
             {menuSections.find(s => s.title === activeCategory)?.items.map((item, i) => (
               <motion.div
                 key={item.name}
@@ -200,11 +201,9 @@ export default function Menu() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.9 }}
+          className="mt-12 lg:mt-20 p-8 lg:p-12 border border-[#C8A86B]/10 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10"
           style={{
-            marginTop: 80, padding: '48px 60px',
-            background: 'linear-gradient(135deg, rgba(26,22,20,0.6), rgba(15,12,10,0.8))',
-            border: '1px solid rgba(200,168,107,0.12)',
-            display: 'flex', alignItems: 'center', gap: 40
+            background: 'linear-gradient(135deg, rgba(26,22,20,0.6), rgba(15,12,10,0.8))'
           }}
         >
           <div style={{

@@ -45,7 +45,7 @@ export default function Events() {
   const ref = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="events" style={{ padding: '160px 0', background: '#080806', position: 'relative', overflow: 'hidden' }}>
+    <section id="events" className="py-20 lg:py-40 relative overflow-hidden" style={{ background: '#080806' }}>
       {/* Atmospheric glow */}
       <div style={{
         position: 'absolute',
@@ -75,9 +75,9 @@ export default function Events() {
         />
       ))}
 
-      <div ref={ref} style={{ maxWidth: 1400, margin: '0 auto', padding: '0 48px', position: 'relative' }}>
+      <div ref={ref} className="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
         {/* Header */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, marginBottom: 100 }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 mb-12 lg:mb-[100px]">
           <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -120,23 +120,18 @@ export default function Events() {
         </div>
 
         {/* Events grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 24 }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {events.map((event, i) => (
             <motion.div
               key={event.title}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '0px' }}
               transition={{ delay: 0.2 + i * 0.12, duration: 0.9, ease: [0.23, 1, 0.32, 1] }}
+              className="p-8 lg:p-12 relative overflow-hidden cursor-pointer transition-all duration-500"
               style={{
-                padding: '48px',
                 border: '1px solid rgba(200,168,107,0.1)',
                 background: 'linear-gradient(135deg, rgba(20,16,14,0.5), rgba(12,10,8,0.8))',
                 backdropFilter: 'blur(12px)',
-                position: 'relative',
-                overflow: 'hidden',
-                cursor: 'pointer',
-                transition: 'all 0.5s ease'
-              }}
               onMouseEnter={e => {
                 e.currentTarget.style.borderColor = event.color + '40';
                 e.currentTarget.style.background = `linear-gradient(135deg, ${event.color}15, rgba(16,14,12,0.85))`;

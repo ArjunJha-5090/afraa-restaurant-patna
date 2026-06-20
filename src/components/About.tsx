@@ -17,20 +17,20 @@ export default function About() {
   const y2 = useTransform(scrollYProgress, [0, 1], [0, 80]);
 
   return (
-    <section id="about" style={{ padding: '160px 0', background: '#0A0A0A', position: 'relative', overflow: 'hidden' }}>
+    <section id="about" className="py-20 lg:py-40 relative overflow-hidden" style={{ background: '#0A0A0A' }}>
       <div style={{
         position: 'absolute', inset: 0,
         background: 'radial-gradient(ellipse at 80% 50%, rgba(200,168,107,0.04) 0%, transparent 60%)'
       }} />
 
-      <div ref={ref} style={{ maxWidth: 1400, margin: '0 auto', padding: '0 48px' }}>
+      <div ref={ref} className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Section label */}
         <motion.div {...fadeUp(0)} style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 80 }}>
           <div style={{ width: 60, height: 1, background: 'linear-gradient(90deg, transparent, rgba(200,168,107,0.6))' }} />
           <span style={{ fontFamily: "'Inter', sans-serif", fontSize: 11, letterSpacing: '0.35em', textTransform: 'uppercase', color: '#C8A86B', fontWeight: 400 }}>Our Story</span>
         </motion.div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 80, alignItems: 'center' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
           {/* Left: Text */}
           <div>
             <motion.h2 {...fadeUp(0.1)} style={{
@@ -77,7 +77,7 @@ export default function About() {
           </div>
 
           {/* Right: Visual */}
-          <div style={{ position: 'relative', height: 600 }}>
+          <div className="relative h-[400px] lg:h-[600px] mt-10 lg:mt-0">
             <motion.div style={{ y: y1 }}
               initial={{ opacity: 0, x: 60 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -131,7 +131,7 @@ export default function About() {
         </div>
 
         {/* Bottom quote */}
-        <motion.div {...fadeUp(0.3)} style={{ marginTop: 120, padding: '60px', borderTop: '1px solid rgba(200,168,107,0.1)', borderBottom: '1px solid rgba(200,168,107,0.1)', textAlign: 'center' }}>
+        <motion.div {...fadeUp(0.3)} className="mt-20 lg:mt-32 p-8 lg:p-[60px] border-t border-b border-[#C8A86B]/10 text-center">
           <p style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(20px, 3vw, 32px)', fontStyle: 'italic', color: 'rgba(250,246,238,0.6)', fontWeight: 300, lineHeight: 1.5, maxWidth: 800, margin: '0 auto' }}>
             "We believe the best conversations happen over the finest cocktails and cuisine — Afraa is where those moments are born."
           </p>

@@ -203,7 +203,7 @@ export default function Beverages() {
   const ref = useRef<HTMLDivElement>(null);
 
   return (
-    <section id="beverages" style={{ padding: '160px 0', background: 'linear-gradient(180deg, #0A0A0A 0%, #0F0C0A 50%, #0A0A0A 100%)', position: 'relative', overflow: 'hidden' }}>
+    <section id="beverages" className="py-20 lg:py-40 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #0A0A0A 0%, #0F0C0A 50%, #0A0A0A 100%)' }}>
       {/* Background glow */}
       <div style={{
         position: 'absolute', top: '20%', left: '50%',
@@ -213,7 +213,7 @@ export default function Beverages() {
         pointerEvents: 'none'
       }} />
 
-      <div style={{ maxWidth: 1400, margin: '0 auto', padding: '0 48px' }}>
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div ref={ref} style={{ textAlign: 'center', marginBottom: 100 }}>
           <motion.div
@@ -260,11 +260,7 @@ export default function Beverages() {
         </div>
 
         {/* Beverage Grid */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-          gap: 24
-        }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {beverages.map((beverage, i) => (
             <BeverageCard key={beverage.name} beverage={beverage} index={i} />
           ))}

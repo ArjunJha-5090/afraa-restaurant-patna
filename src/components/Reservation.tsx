@@ -50,7 +50,7 @@ export default function Reservation() {
   const times = ['6:00 PM', '6:30 PM', '7:00 PM', '7:30 PM', '8:00 PM', '8:30 PM', '9:00 PM', '9:30 PM', '10:00 PM', '10:30 PM', '11:00 PM'];
 
   return (
-    <section id="reservations" style={{ padding: '160px 0', background: '#0A0A0A', position: 'relative', overflow: 'hidden' }}>
+    <section id="reservations" className="py-20 lg:py-40 relative overflow-hidden" style={{ background: '#0A0A0A' }}>
       {/* Background radial */}
       <div style={{
         position: 'absolute', inset: 0,
@@ -64,7 +64,7 @@ export default function Reservation() {
         backgroundSize: '80px 80px'
       }} />
 
-      <div ref={ref} style={{ maxWidth: 1200, margin: '0 auto', padding: '0 48px', position: 'relative' }}>
+      <div ref={ref} className="max-w-[1200px] mx-auto px-6 lg:px-12 relative">
         {/* Header */}
         <div style={{ textAlign: 'center', marginBottom: 80 }}>
           <motion.div
@@ -120,8 +120,8 @@ export default function Reservation() {
             border: '1px solid rgba(200,168,107,0.15)',
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
-            padding: '72px 80px'
           }}
+          className="p-8 lg:p-[72px_80px]"
         >
           {submitted ? (
             <motion.div
@@ -161,7 +161,7 @@ export default function Reservation() {
             </motion.div>
           ) : (
             <form onSubmit={handleSubmit}>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32, marginBottom: 32 }}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 {/* Name */}
                 <div>
                   <label style={labelStyle}>Full Name</label>
@@ -353,10 +353,7 @@ export default function Reservation() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '0px' }}
           transition={{ delay: 0.6, duration: 0.9 }}
-          style={{
-            display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: 1, marginTop: 2
-          }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-px mt-px"
         >
           {[
             { label: 'Call Us', value: '+91 22 6611 2200', icon: '✆' },
